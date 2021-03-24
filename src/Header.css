@@ -1,0 +1,26 @@
+.header_elements {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header_heading {
+  flex: 0.95;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header_heading > h1 {
+  color: #1b51f4;
+  font-size: 3vw;
+}
+
+.header_menu {
+  display: flex;
+  flex: 0.05;
+  justify-content: center;
+}
+.header_logo {
+  height: 20px;
+  width: 30px;
+}

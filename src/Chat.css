@@ -1,0 +1,79 @@
+.chats {
+  padding-top: 40px;
+}
+
+.chat_message {
+  position: relative;
+  font-size: 16px;
+  padding: 10px;
+  background-color: #e6e2e1;
+  border-radius: 10px;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+
+.chats_room {
+  display: flex;
+}
+
+.chat_dp {
+  height: 40px;
+  width: 40px;
+}
+
+.dp {
+  display: flex;
+  flex: 0.05;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat_text {
+  display: flex;
+  flex: 0.95;
+}
+
+.chat_message {
+  font-size: 20px;
+}
+
+.loading {
+  padding: 20px;
+  height: 40px;
+  width: 70px;
+}
+
+.choice_pg1 {
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.choice1 > button {
+  background-color: #1b51f4;
+  border-radius: 20px;
+  color: white;
+  padding: 2vh 5vw;
+  text-align: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.choice1 > button:hover {
+  background-color: black;
+}
+
+.choice2 > button {
+  background-color: #1b51f4;
+  border-radius: 20px;
+  color: white;
+  padding: 2vh 5vw;
+  text-align: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.choice2 > button:hover {
+  background-color: black;
+}
