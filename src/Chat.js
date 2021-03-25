@@ -6,27 +6,16 @@ import chatdp from './images/61.png';
 import wait from './images/Wait.png';
 import edit from './images/edit.png';
 
+
 function Chat() {
-    const { messages, userClickedYes, deleteMessages } = useContext(ChatContext);
-    const [chats, setChats] = useState('');
-    const [showUserInput, setShowUserInput] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
+    const { messages, userClickedYes, deleteMessages, isLoading, showUserInput } = useContext(ChatContext);
 
-    useEffect(() => {
-        setTimeout(() => {
-            setIsLoading(false);
-            setShowUserInput(true);
-        }, 3000);
-    }, []);
-
-    const userYes = (chats) => {
-        setChats([
-            ...messages,
-            { message: "Yes, I do", id: 4, isAdmin: false }
-        ]);
-        userClickedYes(chats);
-        setShowUserInput(false)
-    }
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setIsLoading(false);
+    //         setShowUserInput(true);
+    //     }, 3000);
+    // }, []);
 
     return (
         <div className="chats">
@@ -60,7 +49,7 @@ function Chat() {
             {showUserInput
                 ? <div className="choice_pg1">
                     <div className="choice1">
-                        <Button onClick={() => userYes(messages)}> Yes </Button>
+                        <Button onClick={userClickedYes}> Yes </Button>
                     </div>
                     <div className="choice2">
                         <Button> No </Button>
