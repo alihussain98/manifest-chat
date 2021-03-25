@@ -33,11 +33,11 @@ const ChatContextProvider = (props) => {
         setTimeout(() => {
             setIsLoading(false);
             setShowUserInput(true);
-            console.log(messages)
-            setMessages([
+            setMessages(messages => [
                 ...messages,
                 ...pendingMessages[0]
             ])
+            console.log(messages);
             setPendingMessages(pendingMessages.slice(1));
         }, 3000);
     }
@@ -46,17 +46,20 @@ const ChatContextProvider = (props) => {
         addNextAdminMessage();
     }, []);
 
+
+
     const userClickedYes = () => {
-        console.log(messages);
-        setMessages([
+        console.log("UserClickedYes", messages);
+        setMessages(messages => [
             ...messages,
-            { message: "Yes, I do", id: 4, isAdmin: false }
+            { message: "Yes, I do", id: uuid(), isAdmin: false }
         ]);
         addNextAdminMessage();
     }
 
     const deleteMessages = (id) => {
-        setMessages(messages.filter(message => message.id !== id));
+        const index = messages.findIndex(message => message.isAdmin === false && message.id === id);
+        setMessages(messages => messages.slice(0, index));
     }
 
     return (

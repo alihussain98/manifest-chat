@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import './Chat.css';
 import { ChatContext } from './ChatContext';
 import { Button } from '@material-ui/core';
@@ -9,24 +9,16 @@ import edit from './images/edit.png';
 
 function Chat() {
     const { messages, userClickedYes, deleteMessages, isLoading, showUserInput } = useContext(ChatContext);
-
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         setIsLoading(false);
-    //         setShowUserInput(true);
-    //     }, 3000);
-    // }, []);
-
+    const yesMessages = ['Yes', 'Yes', 'Active'];
+    const noMessages = ['No', 'Not Really', 'Passive'];
+    const userMessageCount = messages.reduce((count, message) => {
+        if (!message.isAdmin) {
+            count++;
+        }
+        return count;
+    }, 0);
     return (
         <div className="chats">
-            {
-                isLoading
-                    ? <div className="loading_animations">
-                        <img className="loading" src={wait} alt="wait" />
-                    </div>
-                    : null
-            }
-
             {messages.map(message => (
                 <div className={message.isAdmin
                     ? "chats_room"
@@ -46,15 +38,25 @@ function Chat() {
                 </div>
             ))}
 
+            {
+                isLoading
+                    ? <div className="loading_animations">
+                        <img className="loading" src={wait} alt="wait" />
+                    </div>
+                    : null
+            }
+
             {showUserInput
-                ? <div className="choice_pg1">
-                    <div className="choice1">
-                        <Button onClick={userClickedYes}> Yes </Button>
+                ? userMessageCount < 3
+                    ? <div className="choice_pg1">
+                        <div className="choice1">
+                            <Button onClick={userClickedYes}> {yesMessages[userMessageCount]} </Button>
+                        </div>
+                        <div className="choice2">
+                            <Button> {noMessages[userMessageCount]} </Button>
+                        </div>
                     </div>
-                    <div className="choice2">
-                        <Button> No </Button>
-                    </div>
-                </div>
+                    : null //calendar div here.
                 : null
             }
         </div>
