@@ -1,5 +1,7 @@
 .chats {
   padding-top: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .chat_message {
@@ -10,10 +12,20 @@
   border-radius: 10px;
   width: fit-content;
   margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.chat_message_user {
+  background-color: #4e78f6;
+  color: white;
 }
 
 .chats_room {
   display: flex;
+}
+
+.chats_room_user {
+  justify-content: flex-end;
 }
 
 .chat_dp {
@@ -30,11 +42,6 @@
 
 .chat_text {
   display: flex;
-  flex: 0.95;
-}
-
-.chat_message {
-  font-size: 20px;
 }
 
 .loading {
@@ -76,4 +83,14 @@
 
 .choice2 > button:hover {
   background-color: black;
+}
+
+.edit_button {
+  border: none;
+  outline: none;
+}
+
+.edit_image {
+  height: 42px;
+  width: 42px;
 }
