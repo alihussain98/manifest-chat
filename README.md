@@ -1,12 +1,8 @@
 # Getting Started with Manifest Chat Bot
 
-### 'npm install @material-ui/core'
+### 'npm install'
 
-Install for using the material-ui buttons
-
-### 'npm install react-day-picker --save'
-
-Imports the date picker used in the application
+To install the dependencies.
 
 ### `npm start`
 
