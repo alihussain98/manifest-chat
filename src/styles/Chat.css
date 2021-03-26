@@ -36,6 +36,7 @@
 .chat_dp {
   height: 40px;
   width: 40px;
+  padding-right: 10px;
 }
 
 .dp {
