@@ -1,9 +1,9 @@
 import React, { useContext, useRef, useEffect } from "react";
-import './Chat.css';
-import { ChatContext } from './ChatContext';
-import chatdp from './images/61.png';
-import wait from './images/Wait.png';
-import edit from './images/edit.png';
+import '../styles/Chat.css';
+import { ChatContext } from '../ChatContext';
+import chatdp from '../images/61.png';
+import wait from '../images/Wait.png';
+import edit from '../images/edit.png';
 
 function Chat() {
     const { messages, deleteMessages, isLoading } = useContext(ChatContext);

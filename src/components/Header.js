@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { ChatContext } from './ChatContext';
-import './Header.css'
-import menu from './images/menu.png'
+import { ChatContext } from '../ChatContext';
+import '../styles/Header.css'
+import menu from '../images/menu.png'
 import { Button } from '@material-ui/core'
 
 function Header() {

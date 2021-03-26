@@ -1,6 +1,6 @@
 import React from 'react'
-import './BotIntro.css'
-import botdp from './images/61.png'
+import '../styles/BotIntro.css'
+import botdp from '../images/61.png'
 
 function BotIntro() {
     return (

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ChatContext } from './ChatContext';
+import { ChatContext } from '../ChatContext';
 import { Button } from '@material-ui/core';
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';

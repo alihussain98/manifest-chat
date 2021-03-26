@@ -1,8 +1,8 @@
 import Header from './Header';
-import './App.css';
-import BotIntro from './BotIntro';
+import '../styles/App.css';
+import BotIntro from './BotIntro.js';
 import Chat from './Chat';
-import ChatContextProvider from './ChatContext';
+import ChatContextProvider from '../ChatContext';
 import UserInput from './UserInput';
 
 

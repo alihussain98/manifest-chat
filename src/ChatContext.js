@@ -48,7 +48,7 @@ const ChatContextProvider = (props) => {
                     ...pendingMessages[userMessageCount]
                 ]
             })
-        }, 1000);
+        }, 2000);
     }
 
     useEffect(() => {
