@@ -8,6 +8,8 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
     "react": "^17.0.2",
+    "react-date-picker-cs": "^0.1.28",
+    "react-day-picker": "^7.4.10",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "react-uuid": "^1.0.2",

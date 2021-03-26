@@ -13,6 +13,7 @@
 .header_heading > h1 {
   color: #1b51f4;
   font-size: 3vw;
+  padding-left: 70px;
 }
 
 .header_menu {

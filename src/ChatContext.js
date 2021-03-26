@@ -18,12 +18,15 @@ const ChatContextProvider = (props) => {
             { message: "Some retirememnt plans allow you to take out loans. Is this feature important to you?", id: uuid(), isAdmin: true }
         ],
         [
-            { message: "All retirememnt plans allow you to take out loans. Is this feature important to you?", id: uuid(), isAdmin: true }
-
+            { message: "There are 2 types of investors: 1) Active investors prefer to frequently monitor their investment choices, adjust allocations, and follow the market. 2) Passive investors like their investments to be managed for them", id: uuid(), isAdmin: true },
+            { message: "Which one best describes you?", id: uuid(), isAdmin: true }
         ],
         [
-            { message: "DOB Random Text allow you to take out loans. Is this feature important to you?", id: uuid(), isAdmin: true }
-
+            { message: "We are required by your provider to collect some identity information.", id: uuid(), isAdmin: true },
+            { message: "What is your Date of birth?", id: uuid(), isAdmin: true }
+        ],
+        [
+            { message: "Thankyou for walking me through your preferences, this will make it much easier for us to choose the right destination for you.", id: uuid(), isAdmin: true }
         ]
     ]);
 
@@ -33,26 +36,38 @@ const ChatContextProvider = (props) => {
         setTimeout(() => {
             setIsLoading(false);
             setShowUserInput(true);
-            setMessages(messages => [
-                ...messages,
-                ...pendingMessages[0]
-            ])
-            console.log(messages);
-            setPendingMessages(pendingMessages.slice(1));
-        }, 3000);
+            setMessages(messages => {
+                const userMessageCount = messages.reduce((count, message) => {
+                    if (!message.isAdmin) {
+                        count++;
+                    }
+                    return count;
+                }, 0);
+                return [
+                    ...messages,
+                    ...pendingMessages[userMessageCount]
+                ]
+            })
+        }, 1000);
     }
 
     useEffect(() => {
         addNextAdminMessage();
     }, []);
 
-
-
-    const userClickedYes = () => {
+    const userClickedYes = (userMessage) => {
         console.log("UserClickedYes", messages);
         setMessages(messages => [
             ...messages,
-            { message: "Yes, I do", id: uuid(), isAdmin: false }
+            { message: userMessage, id: uuid(), isAdmin: false }
+        ]);
+        addNextAdminMessage();
+    }
+
+    const userClickedNo = (userMessage) => {
+        setMessages(messages => [
+            ...messages,
+            { message: userMessage, id: uuid(), isAdmin: false }
         ]);
         addNextAdminMessage();
     }
@@ -62,8 +77,22 @@ const ChatContextProvider = (props) => {
         setMessages(messages => messages.slice(0, index));
     }
 
+    const userSelectedDate = (day) => {
+        setMessages(messages => [
+            ...messages,
+            { message: day.toLocaleDateString(), id: uuid(), isAdmin: false }
+        ]);
+        addNextAdminMessage();
+
+    }
+
+    const confirmClicked = () => {
+        setMessages([]);
+        addNextAdminMessage();
+    }
+
     return (
-        <ChatContext.Provider value={{ messages, userClickedYes, deleteMessages, isLoading, showUserInput }}>
+        <ChatContext.Provider value={{ messages, confirmClicked, userSelectedDate, userClickedYes, userClickedNo, deleteMessages, isLoading, showUserInput }}>
             {props.children}
         </ChatContext.Provider>
     );

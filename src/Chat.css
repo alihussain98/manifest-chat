@@ -1,5 +1,9 @@
 .chats {
-  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /*remove if it breaks */
+  padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -51,7 +55,7 @@
 }
 
 .choice_pg1 {
-  padding-top: 50px;
+  padding-bottom: 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -93,4 +97,29 @@
 .edit_image {
   height: 42px;
   width: 42px;
+}
+
+.date_picker {
+  display: flex;
+  justify-content: center;
+}
+
+.confirm_button {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+.confirm_button > button {
+  display: flex;
+  background-color: #1b51f4;
+  border-radius: 20px;
+  color: white;
+  padding: 2vh 5vw;
+  text-align: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.confirm_button > button:hover {
+  background-color: black;
 }
