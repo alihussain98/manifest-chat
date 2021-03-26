@@ -3,6 +3,7 @@ import './App.css';
 import BotIntro from './BotIntro';
 import Chat from './Chat';
 import ChatContextProvider from './ChatContext';
+import UserInput from './UserInput';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Header />
           <BotIntro />
           <Chat />
+          <UserInput />
         </ChatContextProvider> </div>
     </div>
   );

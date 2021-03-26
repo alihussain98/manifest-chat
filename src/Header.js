@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { ChatContext } from './ChatContext';
 import './Header.css'
 import menu from './images/menu.png'
 import { Button } from '@material-ui/core'
 
 function Header() {
+    const { resetChat } = useContext(ChatContext);
     return (
         <div className="header">
             <div className="header_elements">
@@ -12,7 +14,7 @@ function Header() {
                 </div>
 
                 <div className="header_menu">
-                    <Button><img className="header_logo" src={menu} alt="Menu" /></Button>
+                    <Button onClick={resetChat}><img className="header_logo" src={menu} alt="Menu" /></Button>
                 </div>
             </div>
             <hr />

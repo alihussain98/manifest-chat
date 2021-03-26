@@ -8,7 +8,7 @@ const ChatContextProvider = (props) => {
     const [messages, setMessages] = useState([]);
     const [showUserInput, setShowUserInput] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
-    const [pendingMessages, setPendingMessages] = useState([
+    const pendingMessages = [
         [
             { message: "Hi! I am Henry, your personal transfer specialist.", id: uuid(), isAdmin: true },
             { message: "Nice work deciding to consolidate your retirement accounts. Choosing the right account can be hard. Luckily, I'm here to help!", id: uuid(), isAdmin: true },
@@ -28,7 +28,7 @@ const ChatContextProvider = (props) => {
         [
             { message: "Thankyou for walking me through your preferences, this will make it much easier for us to choose the right destination for you.", id: uuid(), isAdmin: true }
         ]
-    ]);
+    ];
 
     const addNextAdminMessage = () => {
         setIsLoading(true);
@@ -56,7 +56,6 @@ const ChatContextProvider = (props) => {
     }, []);
 
     const userClickedYes = (userMessage) => {
-        console.log("UserClickedYes", messages);
         setMessages(messages => [
             ...messages,
             { message: userMessage, id: uuid(), isAdmin: false }
@@ -86,13 +85,13 @@ const ChatContextProvider = (props) => {
 
     }
 
-    const confirmClicked = () => {
+    const resetChat = () => {
         setMessages([]);
         addNextAdminMessage();
     }
 
     return (
-        <ChatContext.Provider value={{ messages, confirmClicked, userSelectedDate, userClickedYes, userClickedNo, deleteMessages, isLoading, showUserInput }}>
+        <ChatContext.Provider value={{ messages, resetChat, userSelectedDate, userClickedYes, userClickedNo, deleteMessages, isLoading, showUserInput }}>
             {props.children}
         </ChatContext.Provider>
     );
